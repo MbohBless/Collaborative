@@ -1,0 +1,19 @@
+[package]
+name = "websocket"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+models = { path = "../models" }
+core = { path = "../core" }
+db = { path = "../db" }
+axum = { workspace = true }
+tokio = { workspace = true }
+tokio-tungstenite = { workspace = true }
+futures = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+redis = { workspace = true }
+tracing = { workspace = true }

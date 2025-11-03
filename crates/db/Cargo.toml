@@ -1,0 +1,15 @@
+[package]
+name = "db"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+models = { path = "../models" }
+sqlx = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+redis = { workspace = true }
+tracing = { workspace = true }

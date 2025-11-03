@@ -1,0 +1,12 @@
+[package]
+name = "plugins"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+models = { path = "../models" }
+async-trait = { workspace = true }
+anyhow = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
