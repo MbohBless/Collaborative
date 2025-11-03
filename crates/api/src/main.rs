@@ -17,10 +17,7 @@ async fn main() -> anyhow::Result<()> {
         .with(tracing_subscriber::fmt::layer())
         .init();
 
-    // Load config
     let config = config_lib::Config::from_env()?;
-
-    // Create database pool
     db::create_pool(&config.database_url).await?;
 
     // Build router
@@ -33,7 +30,7 @@ async fn main() -> anyhow::Result<()> {
     let addr = format!("{}:{}", config.host, config.port);
     let listener = TcpListener::bind(&addr).await?;
     
-    tracing::info!("🚀 Server listening on {}", addr);
+    tracing::info!("Server listening on {}", addr);
     
     axum::serve(listener, app).await?;
 

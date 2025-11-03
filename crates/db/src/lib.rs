@@ -4,3 +4,4 @@ pub mod errors;
 
 pub use pool::create_pool;
 pub use errors::DbError;
+pub use repositories::{UserRepository, ProjectRepository};  
