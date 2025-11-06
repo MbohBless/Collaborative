@@ -34,6 +34,6 @@ pub struct CreateUser {
     pub username: String,
     pub email: String,
     pub password: String,
-    #[serde(default)]
+    #[serde(default = "Role::default")]
     pub role: Role,
 }

@@ -3,7 +3,7 @@ use axum::{
     response::{IntoResponse, Response},
     Json
 };
-use serde::json;
+use serde_json::json;
 
 pub enum ApiError {
     Auth(core::AuthError),
@@ -31,9 +31,9 @@ impl IntoResponse for ApiError {
             ApiError::Auth(core::AuthError::UserAlreadyExists) => {
                 (StatusCode::CONFLICT, "User already exists".to_string())
             }
-            ApiError::Auth(_) => (StatusCode::UNAUTHORIZED, "Authentication failed"),
-            ApiError::Database(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Database error"),
-            ApiError::Internal(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Internal server error"),
+            ApiError::Auth(_) => (StatusCode::UNAUTHORIZED, "Authentication failed".to_string()),
+            ApiError::Database(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Database error".to_string()),
+            ApiError::Internal(_) => (StatusCode::INTERNAL_SERVER_ERROR, "Internal server error".to_string()),
         };
         (status, Json(json!({ "error": message }))).into_response()
     }
